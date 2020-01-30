@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ngc-e4-vrD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -34,6 +34,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="132" y="113"/>
+        </scene>
+        <!--ScanVC-->
+        <scene sceneID="QPA-JV-LVq">
+            <objects>
+                <viewController id="ngc-e4-vrD" customClass="ScanVC" customModule="DemoFbLogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CrY-gZ-IST">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SGG-hd-sqI" customClass="RatingControl" customModule="DemoFbLogin" customModuleProvider="target">
+                                <rect key="frame" x="81" y="367" width="252" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dah-yr-NmH"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6f-T6-1b2">
+                                <rect key="frame" x="184" y="438" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="handleScannerPresent:forEvent:" destination="ngc-e4-vrD" eventType="touchUpInside" id="YpB-m5-Ghl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="s6f-T6-1b2" firstAttribute="centerY" secondItem="bru-Ce-0WV" secondAttribute="centerY" id="2gq-nC-XC8"/>
+                            <constraint firstItem="s6f-T6-1b2" firstAttribute="centerX" secondItem="bru-Ce-0WV" secondAttribute="centerX" id="Xjt-1R-05h"/>
+                            <constraint firstItem="s6f-T6-1b2" firstAttribute="top" secondItem="SGG-hd-sqI" secondAttribute="bottom" constant="27" id="aIA-ns-lcj"/>
+                            <constraint firstItem="SGG-hd-sqI" firstAttribute="leading" secondItem="bru-Ce-0WV" secondAttribute="leading" constant="81" id="dhT-3M-oWZ"/>
+                            <constraint firstItem="bru-Ce-0WV" firstAttribute="trailing" secondItem="SGG-hd-sqI" secondAttribute="trailing" constant="81" id="nPF-9h-8TW"/>
+                            <constraint firstItem="SGG-hd-sqI" firstAttribute="centerX" secondItem="bru-Ce-0WV" secondAttribute="centerX" id="ny9-nr-0Ej"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bru-Ce-0WV"/>
+                    </view>
+                    <connections>
+                        <outlet property="ratingcontrol" destination="SGG-hd-sqI" id="qy2-1M-1VQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rbt-dS-cCW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="132"/>
         </scene>
     </scenes>
 </document>

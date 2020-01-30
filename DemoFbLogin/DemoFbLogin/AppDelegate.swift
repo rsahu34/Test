@@ -8,6 +8,8 @@
 
 import UIKit
 import FacebookCore
+import GoogleSignIn
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

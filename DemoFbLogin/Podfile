@@ -9,6 +9,8 @@ target 'DemoFbLogin' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'BarcodeScanner'
+  pod 'GoogleSignIn'
 
   target 'DemoFbLoginTests' do
     inherit! :search_paths

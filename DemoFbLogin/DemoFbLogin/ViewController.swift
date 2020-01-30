@@ -11,14 +11,10 @@ import FacebookLogin
 import FacebookCore
 
 class ViewController: UIViewController {
-   
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        let loginButton = FBLoginButton(permissions: [ .publicProfile ])
-//        loginButton.center = view.center
-//
-//        view.addSubview(loginButton)
+
 
     }
     func loginManagerDidComplete(_ result: LoginResult) {
