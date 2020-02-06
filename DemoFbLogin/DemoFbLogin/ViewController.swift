@@ -9,12 +9,18 @@
 import UIKit
 import FacebookLogin
 import FacebookCore
+import GoogleSignIn
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, GIDSignInDelegate {
+    @IBOutlet weak var signInButton: GIDSignInButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().delegate = self
 
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+
+        // Automatically sign in the user.
+        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
 
     }
     func loginManagerDidComplete(_ result: LoginResult) {
@@ -30,7 +36,7 @@ class ViewController: UIViewController {
             print("Fb login :\(grantedPermissions.debugDescription), \(declinedPermission), \(accesstoken)")
             self.getFacebookProfileInfo()
         }
-        self.present(alertController, animated: true, completion: nil)
+       // self.present(alertController, animated: true, completion: nil)
     }
 
     @IBAction private func loginWithReadPermissions() {
@@ -85,32 +91,8 @@ class ViewController: UIViewController {
                 if let tmZone = dicResult?["timezone"] as? String{
                     strFBtimezone = tmZone
                 }
-//                var strFBAccessToken = ""
-//                if let strAT = FBSDKAccessToken.current().tokenString{
-//                    strFBAccessToken = strAT
-//                }
-//                guard strFBAccessToken.count > 0 else{
-//                    self.av.stopAnimating()
-//                    let controller = UIAlertController.alertControllerWithTitle("", message: "Facebook login can't be completed right now. Please try after some time.")
-//                    self.present(controller, animated: true) {}
-//                    return
-//                }
-//                var strFBExpireIn = Double()
-//                if let expireDate =  FBSDKAccessToken.current().expirationDate{
-//                    strFBExpireIn = (expireDate.timeIntervalSince1970) * 1000
-//                }
-//
-//                var fcmtoken = ""
-//                if let refreshedToken = InstanceID.instanceID().token() {
-//                    print("InstanceID token: \(refreshedToken)")
-//                    fcmtoken = refreshedToken
-//                }
-//
-//
-//                let strParams:[String:String] = ["fb_id": strFBUserID, "invitation_code": "", "timezone":strFBtimezone, "email": strFBEMail, "locale": strFBLocale, "name":strFBName, "apns_token": fcmtoken,"expires_in": "\(strFBExpireIn)", "age_range": strFBageRange, "access_token": strFBAccessToken]
-//                let dicFbLoginParm:NSDictionary = NSDictionary.init(dictionary: strParams)
-//                self.callFBLoginWithParam(dicFbLoginParm)
 
+                self.performSegue(withIdentifier: "home", sender: self)
             }else{
                 //self.av.stopAnimating()
                 let controller = UIAlertController(title: "", message: "Facebook login can't be completed right now. Please try after some time.", preferredStyle: .alert)
@@ -121,5 +103,33 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
+     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+               withError error: Error!) {
+       if let error = error {
+         if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+           print("The user has not signed in before or they have since signed out.")
+         } else {
+           print("\(error.localizedDescription)")
+         }
+         return
+       }
+         func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+                   withError error: Error!) {
+           // Perform any operations when the user disconnects from app here.
+           // ...
+         }
+       // Perform any operations on signed in user here.
+       let userId = user.userID                  // For client-side use only!
+       let idToken = user.authentication.idToken // Safe to send to the server
+       let fullName = user.profile.name
+       let givenName = user.profile.givenName
+       let familyName = user.profile.familyName
+       let email = user.profile.email
+       // ...
+        self.performSegue(withIdentifier: "home", sender: self)
+
+     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ngc-e4-vrD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -10,26 +10,42 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DemoFbLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="first" id="BYZ-38-t0r" customClass="ViewController" customModule="DemoFbLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dN-rl-M55">
-                                <rect key="frame" x="160.5" y="438" width="93" height="30"/>
+                                <rect key="frame" x="124" y="432.5" width="166" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2dN-rl-M55" secondAttribute="height" multiplier="4" id="Byf-II-hXD"/>
+                                </constraints>
                                 <state key="normal" title="Login with FB"/>
                                 <connections>
                                     <action selector="loginWithReadPermissions" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sgu-uh-aNH"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bG-BD-h8g" customClass="GIDSignInButton">
+                                <rect key="frame" x="124" y="513.5" width="166" height="41.5"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="2dN-rl-M55" secondAttribute="width" multiplier="2.5" id="OPp-lm-nDs"/>
+                            <constraint firstItem="2dN-rl-M55" firstAttribute="width" secondItem="0bG-BD-h8g" secondAttribute="width" id="Uwi-je-zWA"/>
+                            <constraint firstItem="0bG-BD-h8g" firstAttribute="centerX" secondItem="2dN-rl-M55" secondAttribute="centerX" id="VRZ-8a-oJi"/>
+                            <constraint firstItem="2dN-rl-M55" firstAttribute="bottom" secondItem="0bG-BD-h8g" secondAttribute="top" constant="-40" id="dyB-ee-dKg"/>
                             <constraint firstItem="2dN-rl-M55" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="e8Y-fI-Uts"/>
+                            <constraint firstItem="0bG-BD-h8g" firstAttribute="height" secondItem="2dN-rl-M55" secondAttribute="height" id="gz9-BJ-tMf"/>
                             <constraint firstItem="2dN-rl-M55" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="idE-4c-vIF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="0bG-BD-h8g" id="bJ0-IC-4cU"/>
+                        <segue destination="ngc-e4-vrD" kind="show" identifier="home" id="rY6-6v-JAG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,43 +54,72 @@
         <!--ScanVC-->
         <scene sceneID="QPA-JV-LVq">
             <objects>
-                <viewController id="ngc-e4-vrD" customClass="ScanVC" customModule="DemoFbLogin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScanVC" id="ngc-e4-vrD" customClass="ScanVC" customModule="DemoFbLogin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CrY-gZ-IST">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tcp-X6-zwi">
+                                <rect key="frame" x="176" y="82" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logout:" destination="ngc-e4-vrD" eventType="touchUpInside" id="JT5-4w-WPL"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u2Q-pw-Wns">
+                                <rect key="frame" x="87" y="150" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="u2Q-pw-Wns" secondAttribute="height" multiplier="15:8" id="SL2-oe-B2o"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SGG-hd-sqI" customClass="RatingControl" customModule="DemoFbLogin" customModuleProvider="target">
-                                <rect key="frame" x="81" y="367" width="252" height="44"/>
+                                <rect key="frame" x="81" y="318" width="252" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dah-yr-NmH"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6f-T6-1b2">
-                                <rect key="frame" x="184" y="438" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="190.5" y="389" width="33" height="30"/>
+                                <state key="normal" title="scan"/>
                                 <connections>
                                     <action selector="handleScannerPresent:forEvent:" destination="ngc-e4-vrD" eventType="touchUpInside" id="YpB-m5-Ghl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwc-NV-Ysr">
+                                <rect key="frame" x="157" y="459" width="100" height="30"/>
+                                <state key="normal" title="Capture Photo"/>
+                                <connections>
+                                    <action selector="capturePhoto:" destination="ngc-e4-vrD" eventType="touchUpInside" id="tLi-eJ-zIV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Tcp-X6-zwi" firstAttribute="centerX" secondItem="u2Q-pw-Wns" secondAttribute="centerX" id="1df-4m-svt"/>
                             <constraint firstItem="s6f-T6-1b2" firstAttribute="centerY" secondItem="bru-Ce-0WV" secondAttribute="centerY" id="2gq-nC-XC8"/>
+                            <constraint firstItem="SGG-hd-sqI" firstAttribute="top" secondItem="u2Q-pw-Wns" secondAttribute="bottom" constant="40" id="4rV-0z-ECD"/>
+                            <constraint firstItem="Hwc-NV-Ysr" firstAttribute="centerX" secondItem="s6f-T6-1b2" secondAttribute="centerX" id="FVX-K7-pyd"/>
+                            <constraint firstItem="u2Q-pw-Wns" firstAttribute="centerX" secondItem="SGG-hd-sqI" secondAttribute="centerX" id="Sbx-2t-4Ty"/>
                             <constraint firstItem="s6f-T6-1b2" firstAttribute="centerX" secondItem="bru-Ce-0WV" secondAttribute="centerX" id="Xjt-1R-05h"/>
                             <constraint firstItem="s6f-T6-1b2" firstAttribute="top" secondItem="SGG-hd-sqI" secondAttribute="bottom" constant="27" id="aIA-ns-lcj"/>
                             <constraint firstItem="SGG-hd-sqI" firstAttribute="leading" secondItem="bru-Ce-0WV" secondAttribute="leading" constant="81" id="dhT-3M-oWZ"/>
+                            <constraint firstItem="u2Q-pw-Wns" firstAttribute="width" secondItem="CrY-gZ-IST" secondAttribute="width" multiplier="0.57971" id="g3r-4i-koT"/>
+                            <constraint firstItem="u2Q-pw-Wns" firstAttribute="top" secondItem="Tcp-X6-zwi" secondAttribute="bottom" constant="38" id="heL-Om-0ar"/>
                             <constraint firstItem="bru-Ce-0WV" firstAttribute="trailing" secondItem="SGG-hd-sqI" secondAttribute="trailing" constant="81" id="nPF-9h-8TW"/>
                             <constraint firstItem="SGG-hd-sqI" firstAttribute="centerX" secondItem="bru-Ce-0WV" secondAttribute="centerX" id="ny9-nr-0Ej"/>
+                            <constraint firstItem="Hwc-NV-Ysr" firstAttribute="top" secondItem="s6f-T6-1b2" secondAttribute="bottom" constant="40" id="pZm-fY-zk9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bru-Ce-0WV"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cwW-u3-b4P"/>
                     <connections>
+                        <outlet property="img" destination="u2Q-pw-Wns" id="Rbf-b9-k1s"/>
                         <outlet property="ratingcontrol" destination="SGG-hd-sqI" id="qy2-1M-1VQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rbt-dS-cCW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955" y="132"/>
+            <point key="canvasLocation" x="943" y="113"/>
         </scene>
     </scenes>
 </document>

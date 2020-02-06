@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FacebookLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    private(set) static var shared: SceneDelegate?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,6 +20,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        Self.shared = self
+        if AccessToken.current != nil {
+            // User is logged in, use 'accessToken' here.
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let next:ScanVC = storyboard.instantiateViewController(withIdentifier: "ScanVC") as! ScanVC
+            let navController = UINavigationController.init(rootViewController: next)
+
+            self.window?.rootViewController = navController
+
+        }
+
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -11,22 +11,52 @@ import FacebookCore
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate/*, GIDSignInDelegate*/ {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        GIDSignIn.sharedInstance().clientID = "1072171386785-1pfbltns3pp0f050ggdtc41h5vvelhjo.apps.googleusercontent.com"
+//        GIDSignIn.sharedInstance().delegate = self
 
         return true
     }
+    @available(iOS 9.0, *)
    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         guard let urlScheme = url.scheme else { return false }
         if urlScheme.hasPrefix("fb") {
             return ApplicationDelegate.shared.application(app, open: url, options: options)
+        }else{
+            return GIDSignIn.sharedInstance().handle(url)
         }
         return true
     }
+    
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+//              withError error: Error!) {
+//      if let error = error {
+//        if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+//          print("The user has not signed in before or they have since signed out.")
+//        } else {
+//          print("\(error.localizedDescription)")
+//        }
+//        return
+//      }
+//        func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+//                  withError error: Error!) {
+//          // Perform any operations when the user disconnects from app here.
+//          // ...
+//        }
+//      // Perform any operations on signed in user here.
+//      let userId = user.userID                  // For client-side use only!
+//      let idToken = user.authentication.idToken // Safe to send to the server
+//      let fullName = user.profile.name
+//      let givenName = user.profile.givenName
+//      let familyName = user.profile.familyName
+//      let email = user.profile.email
+//      // ...
+//    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
