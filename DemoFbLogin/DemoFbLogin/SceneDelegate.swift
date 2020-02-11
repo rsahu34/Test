@@ -8,6 +8,7 @@
 
 import UIKit
 import FacebookLogin
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,7 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         Self.shared = self
-        if AccessToken.current != nil {
+        var ischeck = false
+        if (GIDSignIn.sharedInstance()?.currentUser != nil){
+            ischeck = true
+        }
+         if AccessToken.current != nil  {
+            ischeck = true
+        }
+        if ischeck {
             // User is logged in, use 'accessToken' here.
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let next:ScanVC = storyboard.instantiateViewController(withIdentifier: "ScanVC") as! ScanVC

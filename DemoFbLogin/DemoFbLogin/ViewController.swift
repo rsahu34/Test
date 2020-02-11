@@ -115,21 +115,23 @@ class ViewController: UIViewController, GIDSignInDelegate {
          }
          return
        }
-         func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
-                   withError error: Error!) {
-           // Perform any operations when the user disconnects from app here.
-           // ...
-         }
+         
        // Perform any operations on signed in user here.
-       let userId = user.userID                  // For client-side use only!
-       let idToken = user.authentication.idToken // Safe to send to the server
+      // let userId = user.userID                  // For client-side use only!
+       //let idToken = user.authentication.idToken // Safe to send to the server
        let fullName = user.profile.name
-       let givenName = user.profile.givenName
-       let familyName = user.profile.familyName
+      // let givenName = user.profile.givenName
+       //let familyName = user.profile.familyName
        let email = user.profile.email
        // ...
+        print("\(String(describing: fullName)), \(email)")
         self.performSegue(withIdentifier: "home", sender: self)
 
      }
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+      // Perform any operations when the user disconnects from app here.
+      // ...
+    }
 }
 
