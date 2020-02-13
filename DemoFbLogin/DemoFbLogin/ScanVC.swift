@@ -13,7 +13,32 @@ import MobileCoreServices
 import FacebookCore
 import FacebookLogin
 import GoogleSignIn
-
+extension UIImage {
+    func resized(withPercentage percentage: CGFloat, isOpaque: Bool = true) -> UIImage? {
+        let canvas = CGSize(width: size.width * percentage, height: size.height * percentage)
+        let format = imageRendererFormat
+        format.opaque = isOpaque
+        return UIGraphicsImageRenderer(size: canvas, format: format).image {
+            _ in draw(in: CGRect(origin: .zero, size: canvas))
+        }
+    }
+    func resized(toWidth width: CGFloat, isOpaque: Bool = true) -> UIImage? {
+        let canvas = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        let format = imageRendererFormat
+        format.opaque = isOpaque
+        return UIGraphicsImageRenderer(size: canvas, format: format).image {
+            _ in draw(in: CGRect(origin: .zero, size: canvas))
+        }
+    }
+    func resizeUI(size:CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, true, self.scale)
+        self.draw(in: CGRect(origin: CGPoint(x: 0,y :0), size: size))
+        
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return resizedImage
+    }
+}
 extension Data {
 
     /// Append string to Data
@@ -90,17 +115,20 @@ class ScanVC: UIViewController, RatingDelegate {
         let request = NSMutableURLRequest(url:myUrl as! URL);
         request.httpMethod = "POST"
 
-            let boundary = generateBoundaryString()
+        let boundary = generateBoundaryString()
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let h2 = (700.0 * (img.image?.size.height)!) / (img.image?.size.width)!
+        
+        
+        let imgRe = img.image?.resizeUI(size: CGSize.init(width: 700, height: h2))
+        print("!!!!: \(imgRe?.size.width) X \(imgRe?.size.height)" )
 
-            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        let imageData = imgRe!.jpegData(compressionQuality: 1)
+        
 
-        let imageData = img.image!.jpegData(compressionQuality: 1)
-
-            if(imageData==nil)  { return; }
+        if(imageData==nil)  { return; }
 
         request.httpBody = createBodyWithParameters(filePathKey: "userfile", imageDataKey: imageData! as NSData, boundary: boundary) as Data
-
-            //myActivityIndicator.startAnimating();
 
         let task =  URLSession.shared.dataTask(with: request as URLRequest,
                 completionHandler: {
@@ -139,15 +167,23 @@ class ScanVC: UIViewController, RatingDelegate {
 
         func createBodyWithParameters(filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
             let body = NSMutableData();
-            //["name":"kd"]
-            /*if parameters != nil {
-                for (key, value) in parameters! {
-                    body.appendString("--\(boundary)\r\n")
-                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                    body.appendString("\(value)\r\n")
-                }
-            }*/
-            let value = "{\"firstname\":\"kousik\",\"from\":\"ind\"}"
+            var value = NSString()
+           // let value = "{\"firstname\":\"kousik\",\"from\":\"ind\"}"
+            let arrayjson:[String:String] = ["firstname":"kousik","from":"ind"]
+            let dicData = arrayjson as? NSDictionary
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: dicData, options: JSONSerialization.WritingOptions.prettyPrinted) as Data
+                
+                value = NSString(data: jsonData, encoding: String.Encoding.ascii.rawValue)!
+                value = value.replacingOccurrences(of: "\n", with: "") as NSString
+                print("Send verification code req: \(value)")
+
+            } catch  let error as NSError {
+                
+            }
+            
+
+            
             body.appendString(string: "--\(boundary)\r\n")
             body.appendString(string: "Content-Disposition: form-data; name=\"name\"\r\n\r\n")
             body.appendString(string: "\(value)\r\n")

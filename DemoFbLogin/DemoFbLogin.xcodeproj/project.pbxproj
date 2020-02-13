@@ -12,6 +12,7 @@
 		AC08E7FB688604EE058CFDDA /* Pods_DemoFbLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7B7F5B92276100B3CE9DBE /* Pods_DemoFbLogin.framework */; };
 		DF06AF1C23DF2BF100889140 /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF06AF1B23DF2BF100889140 /* ScanVC.swift */; };
 		DF2E3F9B23E19E500058E2C2 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E3F9A23E19E500058E2C2 /* RatingControl.swift */; };
+		DF80637123F440B200ECFA7B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF80637023F440B200ECFA7B /* MapViewController.swift */; };
 		DFAF1AE523D9BCE000CFB984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AE423D9BCE000CFB984 /* AppDelegate.swift */; };
 		DFAF1AE723D9BCE000CFB984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AE623D9BCE000CFB984 /* SceneDelegate.swift */; };
 		DFAF1AE923D9BCE000CFB984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AE823D9BCE000CFB984 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		DED39D4F92C269099E4CD357 /* Pods-DemoFbLogin-DemoFbLoginUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoFbLogin-DemoFbLoginUITests.debug.xcconfig"; path = "Target Support Files/Pods-DemoFbLogin-DemoFbLoginUITests/Pods-DemoFbLogin-DemoFbLoginUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DF06AF1B23DF2BF100889140 /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
 		DF2E3F9A23E19E500058E2C2 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		DF80637023F440B200ECFA7B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DFAF1AE123D9BCE000CFB984 /* DemoFbLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoFbLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAF1AE423D9BCE000CFB984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFAF1AE623D9BCE000CFB984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				DFAF1AE823D9BCE000CFB984 /* ViewController.swift */,
 				DF2E3F9A23E19E500058E2C2 /* RatingControl.swift */,
 				DF06AF1B23DF2BF100889140 /* ScanVC.swift */,
+				DF80637023F440B200ECFA7B /* MapViewController.swift */,
 				DFAF1AEA23D9BCE000CFB984 /* Main.storyboard */,
 				DFAF1AED23D9BCE100CFB984 /* Assets.xcassets */,
 				DFAF1AEF23D9BCE100CFB984 /* LaunchScreen.storyboard */,
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFAF1AE923D9BCE000CFB984 /* ViewController.swift in Sources */,
+				DF80637123F440B200ECFA7B /* MapViewController.swift in Sources */,
 				DF06AF1C23DF2BF100889140 /* ScanVC.swift in Sources */,
 				DFAF1AE523D9BCE000CFB984 /* AppDelegate.swift in Sources */,
 				DF2E3F9B23E19E500058E2C2 /* RatingControl.swift in Sources */,
