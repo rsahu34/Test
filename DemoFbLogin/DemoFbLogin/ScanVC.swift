@@ -58,6 +58,12 @@ class ScanVC: UIViewController, RatingDelegate {
     @IBOutlet weak var ratingcontrol: RatingControl!
     
     @IBOutlet weak var img: UIImageView!
+    private var image: UIImage?
+    private var croppingStyle = CropViewCroppingStyle.default
+    
+    private var croppedRect = CGRect.zero
+    private var croppedAngle = 0
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,8 +71,31 @@ class ScanVC: UIViewController, RatingDelegate {
         self.ratingcontrol.rating = 1
         self.ratingcontrol.isUserInteractionEnabled = true
         // Do any additional setup after loading the view.
+        img.isUserInteractionEnabled = true
+        img.contentMode = .scaleAspectFit
+        if #available(iOS 11.0, *) {
+            img.accessibilityIgnoresInvertColors = true
+        }
+        
+        let tapRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(didTapImageView))
+        img.addGestureRecognizer(tapRecognizer)
     }
-    
+    @objc public func didTapImageView() {
+        // When tapping the image view, restore the image to the previous cropping state
+        let cropViewController = CropViewController(croppingStyle: self.croppingStyle, image: self.image!)
+        cropViewController.delegate = self
+        let viewFrame = view.convert(img.frame, to: navigationController!.view)
+        
+        cropViewController.presentAnimatedFrom(self,
+                                               fromImage: self.img.image,
+                                               fromView: nil,
+                                               fromFrame: viewFrame,
+                                               angle: self.croppedAngle,
+                                               toImageFrame: self.croppedRect,
+                                               setup: { self.img.isHidden = true },
+                                               completion: nil)
+    }
+
     @IBAction func handleScannerPresent(_ sender: Any, forEvent event: UIEvent) {
        let viewController = makeBarcodeScannerViewController()
        viewController.title = "Barcode Scanner"
@@ -84,7 +113,7 @@ class ScanVC: UIViewController, RatingDelegate {
         let imgPick = UIImagePickerController()
         imgPick.delegate = self
         imgPick.sourceType = .camera
-        imgPick.allowsEditing = true
+        imgPick.allowsEditing = false
         
         imgPick.mediaTypes = [kUTTypeImage as String]
         self.present(imgPick, animated: true, completion: nil)
@@ -166,48 +195,76 @@ class ScanVC: UIViewController, RatingDelegate {
         }
 
 
-        func createBodyWithParameters(filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
-            let body = NSMutableData();
-            var value = NSString()
-           // let value = "{\"firstname\":\"kousik\",\"from\":\"ind\"}"
-            let arrayjson:[String:String] = ["firstname":"kousik","from":"ind"]
-            let dicData = arrayjson as? NSDictionary
-            do {
-                let jsonData = try JSONSerialization.data(withJSONObject: dicData, options: JSONSerialization.WritingOptions.prettyPrinted) as Data
-                
-                value = NSString(data: jsonData, encoding: String.Encoding.ascii.rawValue)!
-                value = value.replacingOccurrences(of: "\n", with: "") as NSString
-                print("Send verification code req: \(value)")
-
-            } catch  let error as NSError {
-                
-            }
+    func createBodyWithParameters(filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+        let body = NSMutableData();
+        var value = NSString()
+        // let value = "{\"firstname\":\"kousik\",\"from\":\"ind\"}"
+        let arrayjson:[String:String] = ["firstname":"kousik","from":"ind"]
+        let dicData = arrayjson as? NSDictionary
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dicData, options: JSONSerialization.WritingOptions.prettyPrinted) as Data
             
+            value = NSString(data: jsonData, encoding: String.Encoding.ascii.rawValue)!
+            value = value.replacingOccurrences(of: "\n", with: "") as NSString
+            print("Send verification code req: \(value)")
 
+        } catch  let error as NSError {
             
-            body.appendString(string: "--\(boundary)\r\n")
-            body.appendString(string: "Content-Disposition: form-data; name=\"name\"\r\n\r\n")
-            body.appendString(string: "\(value)\r\n")
-            let filename = "user-profile.jpg"
-
-            let mimetype = "image/jpg"
-
-            body.appendString(string: "--\(boundary)\r\n")
-            body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-            body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
-            body.append(imageDataKey as Data)
-            body.appendString(string: "\r\n")
-
-            body.appendString(string: "--\(boundary)--\r\n")
-
-            return body
         }
+        
+
+        
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"name\"\r\n\r\n")
+        body.appendString(string: "\(value)\r\n")
+        let filename = "user-profile.jpg"
+
+        let mimetype = "image/jpg"
+
+        body.appendString(string: "--\(boundary)\r\n")
+        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+        body.append(imageDataKey as Data)
+        body.appendString(string: "\r\n")
+
+        body.appendString(string: "--\(boundary)--\r\n")
+
+        return body
+    }
 
         func generateBoundaryString() -> String {
             return "Boundary-\(NSUUID().uuidString)"
         }
+    public func layoutImageView() {
+        guard img.image != nil else { return }
+        
+        let padding: CGFloat = 20.0
+        
+        var viewFrame = self.view.bounds
+        viewFrame.size.width -= (padding * 2.0)
+        viewFrame.size.height -= ((padding * 2.0))
+        
+        var imageFrame = CGRect.zero
+        imageFrame.size = img.image!.size;
+        
+        if img.image!.size.width > viewFrame.size.width || img.image!.size.height > viewFrame.size.height {
+            let scale = min(viewFrame.size.width / imageFrame.size.width, viewFrame.size.height / imageFrame.size.height)
+            imageFrame.size.width *= scale
+            imageFrame.size.height *= scale
+            imageFrame.origin.x = (self.view.bounds.size.width - imageFrame.size.width) * 0.5
+            imageFrame.origin.y = (self.view.bounds.size.height - imageFrame.size.height) * 0.5
+            img.frame = imageFrame
+        }
+        else {
+            self.img.frame = imageFrame;
+            self.img.center = CGPoint(x: self.view.bounds.midX, y: self.view.bounds.midY)
+        }
+        self.imageUploadRequest()
+    }
 
-    }// extension for impage uploading
+
+    }
+// extension for impage uploading
 
     extension NSMutableData {
 
@@ -266,8 +323,31 @@ extension ScanVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
                    image = img
                }
 
-                self.img.image = image
-                self.imageUploadRequest()
+//                self.img.image = image
+//                self.imageUploadRequest()
+                let cropController = CropViewController(croppingStyle: croppingStyle, image: image)
+                      //cropController.modalPresentationStyle = .fullScreen
+                      cropController.delegate = self
+                  
+
+                      self.image = image
+                      
+                      //If profile picture, push onto the same navigation stack
+                      if croppingStyle == .circular {
+                          if picker.sourceType == .camera {
+                              picker.dismiss(animated: true, completion: {
+                                  self.present(cropController, animated: true, completion: nil)
+                              })
+                          } else {
+                              picker.pushViewController(cropController, animated: true)
+                          }
+                      }
+                      else { //otherwise dismiss, and then present from the main controller
+                          picker.dismiss(animated: true, completion: {
+                              self.present(cropController, animated: true, completion: nil)
+                              //self.navigationController!.pushViewController(cropController, animated: true)
+                          })
+                      }
             }
         }
         self.dismiss(animated: true, completion: nil)
@@ -276,6 +356,40 @@ extension ScanVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
 }
 
 
-
+extension ScanVC: CropViewControllerDelegate{
+    public func cropViewController(_ cropViewController: CropViewController, didCropToImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+           self.croppedRect = cropRect
+           self.croppedAngle = angle
+           updateImageViewWithImage(image, fromCropViewController: cropViewController)
+       }
+       
+       public func cropViewController(_ cropViewController: CropViewController, didCropToCircularImage image: UIImage, withRect cropRect: CGRect, angle: Int) {
+           self.croppedRect = cropRect
+           self.croppedAngle = angle
+           updateImageViewWithImage(image, fromCropViewController: cropViewController)
+       }
+       
+       public func updateImageViewWithImage(_ image: UIImage, fromCropViewController cropViewController: CropViewController) {
+           img.image = image
+           layoutImageView()
+           
+           self.navigationItem.leftBarButtonItem?.isEnabled = true
+           
+           if cropViewController.croppingStyle != .circular {
+               img.isHidden = true
+               
+               cropViewController.dismissAnimatedFrom(self, withCroppedImage: image,
+                                                      toView: img,
+                                                      toFrame: CGRect.zero,
+                                                      setup: { self.layoutImageView() },
+                                                      completion: {
+                                                       self.img.isHidden = false })
+           }
+           else {
+               self.img.isHidden = false
+               cropViewController.dismiss(animated: true, completion: nil)
+           }
+       }
+}
 
 

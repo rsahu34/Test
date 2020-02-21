@@ -23,6 +23,17 @@
 		DFAF1AF123D9BCE100CFB984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFAF1AEF23D9BCE100CFB984 /* LaunchScreen.storyboard */; };
 		DFAF1AFC23D9BCE100CFB984 /* DemoFbLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AFB23D9BCE100CFB984 /* DemoFbLoginTests.swift */; };
 		DFAF1B0723D9BCE100CFB984 /* DemoFbLoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1B0623D9BCE100CFB984 /* DemoFbLoginUITests.swift */; };
+		DFF60A8A23FFEFAA00B477DE /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFF60A8823FFEFAA00B477DE /* CropViewController.swift */; };
+		DFF60AC323FFFB4F00B477DE /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DFF60A9123FFFB4E00B477DE /* TOCropViewControllerLocalizable.strings */; };
+		DFF60AC423FFFB4F00B477DE /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60AAD23FFFB4E00B477DE /* TOActivityCroppedImageProvider.m */; };
+		DFF60AC523FFFB4F00B477DE /* TOCropViewControllerTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60AAE23FFFB4E00B477DE /* TOCropViewControllerTransitioning.m */; };
+		DFF60AC623FFFB4F00B477DE /* TOCroppedImageAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60AAF23FFFB4E00B477DE /* TOCroppedImageAttributes.m */; };
+		DFF60AC723FFFB4F00B477DE /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60AB323FFFB4E00B477DE /* TOCropViewController.m */; };
+		DFF60AC923FFFB4F00B477DE /* TOCropScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60ABA23FFFB4E00B477DE /* TOCropScrollView.m */; };
+		DFF60ACA23FFFB4F00B477DE /* TOCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60ABB23FFFB4E00B477DE /* TOCropView.m */; };
+		DFF60ACB23FFFB4F00B477DE /* TOCropOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60ABC23FFFB4E00B477DE /* TOCropOverlayView.m */; };
+		DFF60ACC23FFFB4F00B477DE /* TOCropToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60ABD23FFFB4E00B477DE /* TOCropToolbar.m */; };
+		DFF60ACD23FFFB4F00B477DE /* UIImage+CropRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF60AC023FFFB4E00B477DE /* UIImage+CropRotate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +81,56 @@
 		DFAF1B0223D9BCE100CFB984 /* DemoFbLoginUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoFbLoginUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAF1B0623D9BCE100CFB984 /* DemoFbLoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFbLoginUITests.swift; sourceTree = "<group>"; };
 		DFAF1B0823D9BCE100CFB984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFF60A8723FFEFAA00B477DE /* CropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropViewController.h; sourceTree = "<group>"; };
+		DFF60A8823FFEFAA00B477DE /* CropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		DFF60A8923FFEFAA00B477DE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFF60A8C23FFF73100B477DE /* DemoFbLogin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoFbLogin-Bridging-Header.h"; sourceTree = "<group>"; };
+		DFF60A8F23FFFB4E00B477DE /* TOCropViewConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewConstants.h; sourceTree = "<group>"; };
+		DFF60A9223FFFB4E00B477DE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9323FFFB4E00B477DE /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9423FFFB4E00B477DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		DFF60A9523FFFB4E00B477DE /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9623FFFB4E00B477DE /* fa */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fa; path = fa.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9723FFFB4E00B477DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9823FFFB4E00B477DE /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9923FFFB4E00B477DE /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9A23FFFB4E00B477DE /* ms */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ms; path = ms.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9B23FFFB4E00B477DE /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9C23FFFB4E00B477DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60A9D23FFFB4E00B477DE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		DFF60A9E23FFFB4E00B477DE /* fa-IR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fa-IR"; path = "fa-IR.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		DFF60A9F23FFFB4E00B477DE /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA023FFFB4E00B477DE /* da-DK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "da-DK"; path = "da-DK.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		DFF60AA123FFFB4E00B477DE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA223FFFB4E00B477DE /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA323FFFB4E00B477DE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/TOCropViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		DFF60AA423FFFB4E00B477DE /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA523FFFB4E00B477DE /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA623FFFB4E00B477DE /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA723FFFB4E00B477DE /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA823FFFB4E00B477DE /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AA923FFFB4E00B477DE /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AAA23FFFB4E00B477DE /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AAB23FFFB4E00B477DE /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		DFF60AAD23FFFB4E00B477DE /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
+		DFF60AAE23FFFB4E00B477DE /* TOCropViewControllerTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewControllerTransitioning.m; sourceTree = "<group>"; };
+		DFF60AAF23FFFB4E00B477DE /* TOCroppedImageAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCroppedImageAttributes.m; sourceTree = "<group>"; };
+		DFF60AB023FFFB4E00B477DE /* TOActivityCroppedImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOActivityCroppedImageProvider.h; sourceTree = "<group>"; };
+		DFF60AB123FFFB4E00B477DE /* TOCropViewControllerTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewControllerTransitioning.h; sourceTree = "<group>"; };
+		DFF60AB223FFFB4E00B477DE /* TOCroppedImageAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCroppedImageAttributes.h; sourceTree = "<group>"; };
+		DFF60AB323FFFB4E00B477DE /* TOCropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropViewController.m; sourceTree = "<group>"; };
+		DFF60AB523FFFB4E00B477DE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFF60AB723FFFB4E00B477DE /* TOCropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropView.h; sourceTree = "<group>"; };
+		DFF60AB823FFFB4E00B477DE /* TOCropOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropOverlayView.h; sourceTree = "<group>"; };
+		DFF60AB923FFFB4E00B477DE /* TOCropToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropToolbar.h; sourceTree = "<group>"; };
+		DFF60ABA23FFFB4E00B477DE /* TOCropScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropScrollView.m; sourceTree = "<group>"; };
+		DFF60ABB23FFFB4E00B477DE /* TOCropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropView.m; sourceTree = "<group>"; };
+		DFF60ABC23FFFB4E00B477DE /* TOCropOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropOverlayView.m; sourceTree = "<group>"; };
+		DFF60ABD23FFFB4E00B477DE /* TOCropToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOCropToolbar.m; sourceTree = "<group>"; };
+		DFF60ABE23FFFB4E00B477DE /* TOCropScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropScrollView.h; sourceTree = "<group>"; };
+		DFF60AC023FFFB4E00B477DE /* UIImage+CropRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CropRotate.m"; sourceTree = "<group>"; };
+		DFF60AC123FFFB4E00B477DE /* UIImage+CropRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CropRotate.h"; sourceTree = "<group>"; };
+		DFF60AC223FFFB4E00B477DE /* TOCropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOCropViewController.h; sourceTree = "<group>"; };
 		ECD36E5312C56C46B2CBA1A5 /* Pods-DemoFbLogin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoFbLogin.release.xcconfig"; path = "Target Support Files/Pods-DemoFbLogin/Pods-DemoFbLogin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,7 +210,9 @@
 		DFAF1AE323D9BCE000CFB984 /* DemoFbLogin */ = {
 			isa = PBXGroup;
 			children = (
+				DFF60A8623FFEFAA00B477DE /* CropViewController */,
 				DFAF1AE423D9BCE000CFB984 /* AppDelegate.swift */,
+				DFF60A8D23FFFB4E00B477DE /* TOCropViewController */,
 				DFAF1AE623D9BCE000CFB984 /* SceneDelegate.swift */,
 				DFAF1AE823D9BCE000CFB984 /* ViewController.swift */,
 				DF910F4123F592F400144E73 /* RtTblCell.swift */,
@@ -161,6 +224,7 @@
 				DFAF1AED23D9BCE100CFB984 /* Assets.xcassets */,
 				DFAF1AEF23D9BCE100CFB984 /* LaunchScreen.storyboard */,
 				DFAF1AF223D9BCE100CFB984 /* Info.plist */,
+				DFF60A8C23FFF73100B477DE /* DemoFbLogin-Bridging-Header.h */,
 			);
 			path = DemoFbLogin;
 			sourceTree = "<group>";
@@ -181,6 +245,92 @@
 				DFAF1B0823D9BCE100CFB984 /* Info.plist */,
 			);
 			path = DemoFbLoginUITests;
+			sourceTree = "<group>";
+		};
+		DFF60A8623FFEFAA00B477DE /* CropViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60A8723FFEFAA00B477DE /* CropViewController.h */,
+				DFF60A8823FFEFAA00B477DE /* CropViewController.swift */,
+				DFF60A8923FFEFAA00B477DE /* Info.plist */,
+			);
+			path = CropViewController;
+			sourceTree = "<group>";
+		};
+		DFF60A8D23FFFB4E00B477DE /* TOCropViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60A8E23FFFB4E00B477DE /* Constants */,
+				DFF60A9023FFFB4E00B477DE /* Resources */,
+				DFF60AAC23FFFB4E00B477DE /* Models */,
+				DFF60AB323FFFB4E00B477DE /* TOCropViewController.m */,
+				DFF60AB423FFFB4E00B477DE /* Supporting */,
+				DFF60AB623FFFB4E00B477DE /* Views */,
+				DFF60ABF23FFFB4E00B477DE /* Categories */,
+				DFF60AC223FFFB4E00B477DE /* TOCropViewController.h */,
+			);
+			path = TOCropViewController;
+			sourceTree = "<group>";
+		};
+		DFF60A8E23FFFB4E00B477DE /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60A8F23FFFB4E00B477DE /* TOCropViewConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		DFF60A9023FFFB4E00B477DE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60A9123FFFB4E00B477DE /* TOCropViewControllerLocalizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DFF60AAC23FFFB4E00B477DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60AAD23FFFB4E00B477DE /* TOActivityCroppedImageProvider.m */,
+				DFF60AAE23FFFB4E00B477DE /* TOCropViewControllerTransitioning.m */,
+				DFF60AAF23FFFB4E00B477DE /* TOCroppedImageAttributes.m */,
+				DFF60AB023FFFB4E00B477DE /* TOActivityCroppedImageProvider.h */,
+				DFF60AB123FFFB4E00B477DE /* TOCropViewControllerTransitioning.h */,
+				DFF60AB223FFFB4E00B477DE /* TOCroppedImageAttributes.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DFF60AB423FFFB4E00B477DE /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60AB523FFFB4E00B477DE /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		DFF60AB623FFFB4E00B477DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60AB723FFFB4E00B477DE /* TOCropView.h */,
+				DFF60AB823FFFB4E00B477DE /* TOCropOverlayView.h */,
+				DFF60AB923FFFB4E00B477DE /* TOCropToolbar.h */,
+				DFF60ABA23FFFB4E00B477DE /* TOCropScrollView.m */,
+				DFF60ABB23FFFB4E00B477DE /* TOCropView.m */,
+				DFF60ABC23FFFB4E00B477DE /* TOCropOverlayView.m */,
+				DFF60ABD23FFFB4E00B477DE /* TOCropToolbar.m */,
+				DFF60ABE23FFFB4E00B477DE /* TOCropScrollView.h */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DFF60ABF23FFFB4E00B477DE /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DFF60AC023FFFB4E00B477DE /* UIImage+CropRotate.m */,
+				DFF60AC123FFFB4E00B477DE /* UIImage+CropRotate.h */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +426,30 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
+				ar,
+				"zh-Hans",
+				ja,
+				fa,
+				es,
+				it,
+				ms,
+				ko,
+				"zh-Hant",
+				"fa-IR",
+				hu,
+				"da-DK",
+				tr,
+				pl,
+				"pt-BR",
+				vi,
+				ru,
+				fr,
+				fi,
+				id,
+				nl,
+				pt,
+				ro,
 			);
 			mainGroup = DFAF1AD823D9BCE000CFB984;
 			productRefGroup = DFAF1AE223D9BCE000CFB984 /* Products */;
@@ -298,6 +472,7 @@
 				DFAF1AEE23D9BCE100CFB984 /* Assets.xcassets in Resources */,
 				DF910F4423F592F400144E73 /* RtTblCell.xib in Resources */,
 				DFAF1AEC23D9BCE000CFB984 /* Main.storyboard in Resources */,
+				DFF60AC323FFFB4F00B477DE /* TOCropViewControllerLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,12 +635,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF910F4323F592F400144E73 /* RtTblCell.swift in Sources */,
+				DFF60AC923FFFB4F00B477DE /* TOCropScrollView.m in Sources */,
 				DFAF1AE923D9BCE000CFB984 /* ViewController.swift in Sources */,
+				DFF60ACA23FFFB4F00B477DE /* TOCropView.m in Sources */,
+				DFF60ACC23FFFB4F00B477DE /* TOCropToolbar.m in Sources */,
 				DF80637123F440B200ECFA7B /* MapViewController.swift in Sources */,
+				DFF60AC523FFFB4F00B477DE /* TOCropViewControllerTransitioning.m in Sources */,
+				DFF60AC423FFFB4F00B477DE /* TOActivityCroppedImageProvider.m in Sources */,
 				DF06AF1C23DF2BF100889140 /* ScanVC.swift in Sources */,
+				DFF60ACB23FFFB4F00B477DE /* TOCropOverlayView.m in Sources */,
+				DFF60AC623FFFB4F00B477DE /* TOCroppedImageAttributes.m in Sources */,
 				DFAF1AE523D9BCE000CFB984 /* AppDelegate.swift in Sources */,
 				DF2E3F9B23E19E500058E2C2 /* RatingControl.swift in Sources */,
+				DFF60A8A23FFEFAA00B477DE /* CropViewController.swift in Sources */,
 				DFAF1AE723D9BCE000CFB984 /* SceneDelegate.swift in Sources */,
+				DFF60AC723FFFB4F00B477DE /* TOCropViewController.m in Sources */,
+				DFF60ACD23FFFB4F00B477DE /* UIImage+CropRotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +700,39 @@
 				DFAF1AF023D9BCE100CFB984 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DFF60A9123FFFB4E00B477DE /* TOCropViewControllerLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFF60A9223FFFB4E00B477DE /* de */,
+				DFF60A9323FFFB4E00B477DE /* ar */,
+				DFF60A9423FFFB4E00B477DE /* zh-Hans */,
+				DFF60A9523FFFB4E00B477DE /* ja */,
+				DFF60A9623FFFB4E00B477DE /* fa */,
+				DFF60A9723FFFB4E00B477DE /* en */,
+				DFF60A9823FFFB4E00B477DE /* es */,
+				DFF60A9923FFFB4E00B477DE /* it */,
+				DFF60A9A23FFFB4E00B477DE /* ms */,
+				DFF60A9B23FFFB4E00B477DE /* ko */,
+				DFF60A9C23FFFB4E00B477DE /* Base */,
+				DFF60A9D23FFFB4E00B477DE /* zh-Hant */,
+				DFF60A9E23FFFB4E00B477DE /* fa-IR */,
+				DFF60A9F23FFFB4E00B477DE /* hu */,
+				DFF60AA023FFFB4E00B477DE /* da-DK */,
+				DFF60AA123FFFB4E00B477DE /* tr */,
+				DFF60AA223FFFB4E00B477DE /* pl */,
+				DFF60AA323FFFB4E00B477DE /* pt-BR */,
+				DFF60AA423FFFB4E00B477DE /* vi */,
+				DFF60AA523FFFB4E00B477DE /* ru */,
+				DFF60AA623FFFB4E00B477DE /* fr */,
+				DFF60AA723FFFB4E00B477DE /* fi */,
+				DFF60AA823FFFB4E00B477DE /* id */,
+				DFF60AA923FFFB4E00B477DE /* nl */,
+				DFF60AAA23FFFB4E00B477DE /* pt */,
+				DFF60AAB23FFFB4E00B477DE /* ro */,
+			);
+			name = TOCropViewControllerLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -576,6 +794,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -629,6 +848,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -650,6 +870,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodjets.food;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = FoodjetsDev03Oct19;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/DemoFbLogin-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -671,6 +892,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.foodjets.food;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = FoodjetsDev03Oct19;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/$(PROJECT_NAME)/DemoFbLogin-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -697,6 +919,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoFbLogin.app/DemoFbLogin";
@@ -724,6 +947,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DemoFbLogin.app/DemoFbLogin";
@@ -747,6 +971,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = DemoFbLogin;
@@ -770,6 +995,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = DemoFbLogin;
