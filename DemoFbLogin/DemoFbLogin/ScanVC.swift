@@ -84,7 +84,8 @@ class ScanVC: UIViewController, RatingDelegate {
         let imgPick = UIImagePickerController()
         imgPick.delegate = self
         imgPick.sourceType = .camera
-        imgPick.allowsEditing = false
+        imgPick.allowsEditing = true
+        
         imgPick.mediaTypes = [kUTTypeImage as String]
         self.present(imgPick, animated: true, completion: nil)
         
@@ -252,10 +253,21 @@ extension ScanVC: UIImagePickerControllerDelegate, UINavigationControllerDelegat
         
         if let mediaData = info[UIImagePickerController.InfoKey.mediaType] as? NSString{
             if mediaData.isEqual(to: kUTTypeImage as! String){
-                if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-                    self.img.image = image
-                    self.imageUploadRequest()
-                }
+                
+                var image : UIImage!
+
+                if let img = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+               {
+                   image = img
+
+               }
+                else if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+               {
+                   image = img
+               }
+
+                self.img.image = image
+                self.imageUploadRequest()
             }
         }
         self.dismiss(animated: true, completion: nil)

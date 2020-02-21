@@ -24,7 +24,7 @@ protocol RatingDelegate {
         }
     }
     
-    @IBInspectable var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
+    @IBInspectable var starSize: CGSize = CGSize(width: 16.4, height: 16.4) {
         didSet {
             setupButtons()
         }

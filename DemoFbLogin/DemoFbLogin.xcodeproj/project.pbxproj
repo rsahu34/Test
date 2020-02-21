@@ -13,6 +13,8 @@
 		DF06AF1C23DF2BF100889140 /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF06AF1B23DF2BF100889140 /* ScanVC.swift */; };
 		DF2E3F9B23E19E500058E2C2 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF2E3F9A23E19E500058E2C2 /* RatingControl.swift */; };
 		DF80637123F440B200ECFA7B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF80637023F440B200ECFA7B /* MapViewController.swift */; };
+		DF910F4323F592F400144E73 /* RtTblCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF910F4123F592F400144E73 /* RtTblCell.swift */; };
+		DF910F4423F592F400144E73 /* RtTblCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF910F4223F592F400144E73 /* RtTblCell.xib */; };
 		DFAF1AE523D9BCE000CFB984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AE423D9BCE000CFB984 /* AppDelegate.swift */; };
 		DFAF1AE723D9BCE000CFB984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AE623D9BCE000CFB984 /* SceneDelegate.swift */; };
 		DFAF1AE923D9BCE000CFB984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFAF1AE823D9BCE000CFB984 /* ViewController.swift */; };
@@ -52,6 +54,8 @@
 		DF06AF1B23DF2BF100889140 /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
 		DF2E3F9A23E19E500058E2C2 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		DF80637023F440B200ECFA7B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		DF910F4123F592F400144E73 /* RtTblCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RtTblCell.swift; sourceTree = "<group>"; };
+		DF910F4223F592F400144E73 /* RtTblCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RtTblCell.xib; sourceTree = "<group>"; };
 		DFAF1AE123D9BCE000CFB984 /* DemoFbLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoFbLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFAF1AE423D9BCE000CFB984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFAF1AE623D9BCE000CFB984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +152,8 @@
 				DFAF1AE423D9BCE000CFB984 /* AppDelegate.swift */,
 				DFAF1AE623D9BCE000CFB984 /* SceneDelegate.swift */,
 				DFAF1AE823D9BCE000CFB984 /* ViewController.swift */,
+				DF910F4123F592F400144E73 /* RtTblCell.swift */,
+				DF910F4223F592F400144E73 /* RtTblCell.xib */,
 				DF2E3F9A23E19E500058E2C2 /* RatingControl.swift */,
 				DF06AF1B23DF2BF100889140 /* ScanVC.swift */,
 				DF80637023F440B200ECFA7B /* MapViewController.swift */,
@@ -290,6 +296,7 @@
 			files = (
 				DFAF1AF123D9BCE100CFB984 /* LaunchScreen.storyboard in Resources */,
 				DFAF1AEE23D9BCE100CFB984 /* Assets.xcassets in Resources */,
+				DF910F4423F592F400144E73 /* RtTblCell.xib in Resources */,
 				DFAF1AEC23D9BCE000CFB984 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF910F4323F592F400144E73 /* RtTblCell.swift in Sources */,
 				DFAF1AE923D9BCE000CFB984 /* ViewController.swift in Sources */,
 				DF80637123F440B200ECFA7B /* MapViewController.swift in Sources */,
 				DF06AF1C23DF2BF100889140 /* ScanVC.swift in Sources */,
